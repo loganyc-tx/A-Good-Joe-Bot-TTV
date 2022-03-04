@@ -1,5 +1,5 @@
 # Dependency directories
 node_modules/
 
-# Local variables
-privateVars.json
+# Untracked files:
+./privateVars.json
