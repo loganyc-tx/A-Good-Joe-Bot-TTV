@@ -1,5 +1,8 @@
 # Dependency directories
 node_modules/
 
-# Untracked files:
+# Untracked files
 privateVars.json
+
+# Sound files
+*.mp3
