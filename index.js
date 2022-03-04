@@ -1,15 +1,17 @@
 const tmi = require('tmi.js');
+var irc = require('irc'),
+    user = require("./privateVars.json")
 
 //config options
 const opts = {
     identity: {
-        username: process.env.BOT_USERNAME,
+        username: user.BOT_USERNAME,
         //#region
-        password: process.env.OAUTH_TOKEN
+        password: user.OAUTH_TOKEN
         //#endregion
     },
     channels: [
-        process.env.CHANNEL_NAME
+        user.CHANNEL_NAME
     ]
 };
 
@@ -41,5 +43,6 @@ function onMessageHandler (target, context, msg, self){
 
 // Called on connect
 function onConnectedHandler (addr, port){
+    console.log(user.CHANNEL_NAME);
     console.log('Successfuly connection to $(addr):$(port)');
 }
