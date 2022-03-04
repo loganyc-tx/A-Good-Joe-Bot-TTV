@@ -44,5 +44,5 @@ function onMessageHandler (target, context, msg, self){
 // Called on connect
 function onConnectedHandler (addr, port){
     console.log(user.CHANNEL_NAME);
-    console.log('Successfuly connection to $(addr):$(port)');
+    console.log('* Successfuly connection to ${addr}:${port}');
 }
