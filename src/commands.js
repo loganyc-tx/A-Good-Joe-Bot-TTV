@@ -1,3 +1,7 @@
+var ANGERsound = new Howl({
+    src: ['audio/bladrunnerANGRY.mp3']
+});
+
 const commands = [
     {
       command: "!help",
@@ -19,10 +23,8 @@ const commands = [
         console.log(tags);
       },
       handler: async () => {
-        const response = await fetch("1606375674646.gif")
         ANGERsound.play();
-        const data = await response.json()
-        gifQueue.add(data[0].url);
+        gifQueue.add("1606375674646.gif");
       },
     },
   ];
