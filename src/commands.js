@@ -15,19 +15,12 @@ const commands = [
     },
     {
       command: "!ps",
-      condition: () => true,
-      handler: async () => {
-        const response = await fetch("https://inspirobot.me/api?generate=true");
-        const url = await response.text();
-        gifQueue.add(url);
+      condition: (tags) => {
+        console.log(tags);
       },
-    },
-    {
-      command: "!stoppls",
-      condition: (tags, message) => tags.badges.broadcaster || tags.mod,
-      handler: () => {
-        gifQueue.clear();
-        gifQueue.pause(PAUSE_DURATION);
+      handler: async () => {
+        
+        gifQueue.add(url);
       },
     },
   ];
