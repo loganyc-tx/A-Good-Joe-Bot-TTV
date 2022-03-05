@@ -25,7 +25,7 @@ const gifQueue = new Queue({
       gifContainer.innerHTML = `<img src="${url}" />`;
       gifContainer.style.opacity = 1;
   
-      await new Promise((resolve) => setTimeout(resolve, DISPLAY_DURATION));
+      await new Promise((resolve) => setTimeout(resolve, 5 * 1000));
   
       if (!gifQueue.isLooping) {
         gifContainer.style.opacity = 0;
