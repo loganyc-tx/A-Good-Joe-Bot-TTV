@@ -23,11 +23,9 @@ const commands = [
         console.log(tags);
       },
       handler: async () => {
-          console.log("playsound");
-        const response = await fetch("https://files.catbox.moe/3jvet4.gif");
+        console.log("playsound");
         ANGERsound.play();
-        const data = await response.json();
-        gifQueue.add(data[0].url);
+        gifQueue.add("https://files.catbox.moe/3jvet4.gif");
       },
     },
   ];
