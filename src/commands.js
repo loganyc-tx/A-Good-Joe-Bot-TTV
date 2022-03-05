@@ -19,9 +19,7 @@ const commands = [
     },
     {
       command: "!ps",
-      condition: (tags) => {
-        console.log(tags);
-      },
+      condition: () => true,
       handler: async () => {
         console.log("playsound");
         ANGERsound.play();
