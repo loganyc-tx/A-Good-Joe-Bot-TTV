@@ -1,6 +1,5 @@
 const tmi = require('tmi.js');
 var irc = require('irc'),
-    user = require("../privateVars.json")
 const {Howl, Howler} = require('howler'); 
 // const OBSWebSocket = require('obs-websocket-js');
 // const obs =  new OBSWebSocket();
@@ -9,13 +8,13 @@ const {Howl, Howler} = require('howler');
 //config options
 const opts = {
     identity: {
-        username: user.BOT_USERNAME,
+        username: process.env.BOT_USERNAME,
         //#region
-        password: user.OAUTH_TOKEN
+        password: process.env.OAUTH_TOKEN
         //#endregion
     },
     channels: [
-        user.CHANNEL_NAME
+        process.env.CHANNEL_NAME
     ]
 };
 
@@ -76,18 +75,26 @@ function onMessageHandler (target, context, msg, self){
         irc.say(target, '!help, !commands, !ps (playsound)');
         
     }else if(args[0] === '!ps'){
+        const gifContainer = document.querySelector(".gif");
+        
+
         console.log('* Executed command !ps');
         if(args.length < 2){
             irc.say(target, 'Give me something to work with here. (STFU, kANGER)');
         }else if(args[1] === 'stfu'){
             STFUsound.play(); 
         }else if(args[1] === 'kANGER'){
+            gifContainer.innerHTML = `<img src="./src/1606375674646.gif" />`;
+            gifContainer.style.opacity = 1;
             ANGERsound.play();
         }else if(args[1] === 'sorry4what'){
             sorry4What.play();
         }else{
             irc.say(target, 'Not a valid playsound. (STFU, kANGER, sorry4what)');
         }
+
+        await new Promise((resolve) => setTimeout(resolve, 3 * 1000)); //3 sec
+        
     
     }else{
         console.log('* Unknown command ${commandName}');
@@ -96,7 +103,7 @@ function onMessageHandler (target, context, msg, self){
 
 // Called on connect
 function onConnectedHandler (addr, port){
-    console.log(user.CHANNEL_NAME);
+    console.log(process.env.CHANNEL_NAME);
     console.log('* Successfuly connection to ${addr}:${port}');
 }
 
