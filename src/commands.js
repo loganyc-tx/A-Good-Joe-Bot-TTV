@@ -7,14 +7,14 @@ const commands = [
       command: "!help",
       condition: () => true,
       handler: async() => {
-        return irc.say(target, 'Yeah, me too pal.');
+        //return irc.say(target, 'Yeah, me too pal.');
       },
     },
     {
       command: "!commands",
       condition: () => true,
       handler: async() => {
-        irc.say(target, '!help, !commands, !ps (playsound)');
+        //irc.say(target, '!help, !commands, !ps (playsound)');
       },
     },
     {
