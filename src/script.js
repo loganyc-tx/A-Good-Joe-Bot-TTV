@@ -58,6 +58,16 @@ const gifQueue = new Queue({
 //     console.error(err.message);
 // }
 // New client
+var STFUsound = new Howl({
+    src: ['audio/STFU.mp3']
+});
+var ANGERsound = new Howl({
+    src: ['audio/bladrunnerANGRY.mp3']
+});
+var sorry4What = new Howl({
+    src: ['audio/Sorry for what.mp3']
+});
+
 irc = new tmi.client(opts);
 irc.connect();
 client.on("message", (channel, tags, message) => {
@@ -70,19 +80,7 @@ client.on("message", (channel, tags, message) => {
       }
     });
   });
-
-
-var STFUsound = new Howl({
-    src: ['audio/STFU.mp3']
-});
-var ANGERsound = new Howl({
-    src: ['audio/bladrunnerANGRY.mp3']
-});
-var sorry4What = new Howl({
-    src: ['audio/Sorry for what.mp3']
-});
-
-    
+   
 
 
 // Called if there is a message
