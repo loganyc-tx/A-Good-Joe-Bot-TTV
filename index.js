@@ -2,6 +2,9 @@ const tmi = require('tmi.js');
 var irc = require('irc'),
     user = require("./privateVars.json")
 const {Howl, Howler} = require('howler'); 
+// const OBSWebSocket = require('obs-websocket-js');
+// const obs =  new OBSWebSocket();
+
 
 //config options
 const opts = {
@@ -16,23 +19,46 @@ const opts = {
     ]
 };
 
+    // New client
+irc = new tmi.client(opts);
+try{
+    // obs.connect({
+    //     address: "localhost:4444",
+    //     password: user.WEBSOCK_PW,
+    // }).catch( err=> {
+    //     console.error(err.message);
+    // });
+    console.log('Websocket connected.');
+    
+    irc.connect();
+    
+    
+    // Event handler registration
+    
+    irc.on('connected', onConnectedHandler);
+    
+    // Connect to ttv
+    
+    
+    irc.on('message', onMessageHandler);
+} catch (err){
+    console.error(err.message);
+}
+
+
+
 var STFUsound = new Howl({
     src: ['audio/STFU.mp3']
 });
 var ANGERsound = new Howl({
     src: ['audio/bladrunnerANGRY.mp3']
 });
+var sorry4What = new Howl({
+    src: ['audio/Sorry for what.mp3']
+});
 
+    
 
-// New client
-const client = new tmi.client(opts);
-
-// Event handler registration
-client.on('message', onMessageHandler);
-client.on('connected', onConnectedHandler);
-
-// Connect to ttv
-client.connect();
 
 // Called if there is a message
 function onMessageHandler (target, context, msg, self){
@@ -43,19 +69,24 @@ function onMessageHandler (target, context, msg, self){
     var args = commandName.split(' ');
     console.log(args.toString() + ".");
     // do da command
-    if (args[0] === '!help'){
-        client.say(target, 'Yeah, me too pal.');
+    if (args[0] === '!help' || args[0] === '!h'){
+        irc.say(target, 'Yeah, me too pal.');
+        
+    }else if (args[0] === '!c' || args[0] === '!commands'){
+        irc.say(target, '!help, !commands, !ps (playsound)');
         
     }else if(args[0] === '!ps'){
         console.log('* Executed command !ps');
         if(args.length < 2){
-            client.say(target, 'Give me something to work with here. (STFU, AGH)');
+            irc.say(target, 'Give me something to work with here. (STFU, kANGER)');
         }else if(args[1] === 'stfu'){
             STFUsound.play(); 
-        }else if(args[1] === 'agh'){
+        }else if(args[1] === 'kANGER'){
             ANGERsound.play();
+        }else if(args[1] === 'sorry4what'){
+            sorry4What.play();
         }else{
-            client.say(target, 'Not a valid playsound. (STFU, AGH)');
+            irc.say(target, 'Not a valid playsound. (STFU, kANGER, sorry4what)');
         }
     
     }else{
@@ -68,3 +99,9 @@ function onConnectedHandler (addr, port){
     console.log(user.CHANNEL_NAME);
     console.log('* Successfuly connection to ${addr}:${port}');
 }
+
+
+
+
+
+

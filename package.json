@@ -24,6 +24,7 @@
   "dependencies": {
     "howler": "^2.2.3",
     "irc": "^0.5.2",
+    "obs-websocket-js": "^4.0.3",
     "tmi.js": "^1.8.5"
   }
 }
