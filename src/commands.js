@@ -23,8 +23,11 @@ const commands = [
         console.log(tags);
       },
       handler: async () => {
+          console.log("playsound");
+        const response = await fetch("https://files.catbox.moe/3jvet4.gif");
         ANGERsound.play();
-        gifQueue.add("1606375674646.gif");
+        const data = await response.json();
+        gifQueue.add(data[0].url);
       },
     },
   ];
