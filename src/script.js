@@ -1,5 +1,6 @@
 const tmi = require('tmi.js');
-var irc = require('irc'),
+var irc = require('irc');
+const command = require('./commands.js')
 const {Howl, Howler} = require('howler'); 
 // const OBSWebSocket = require('obs-websocket-js');
 // const obs =  new OBSWebSocket();
@@ -18,32 +19,43 @@ const opts = {
     ]
 };
 
-    // New client
-irc = new tmi.client(opts);
-try{
-    // obs.connect({
-    //     address: "localhost:4444",
-    //     password: user.WEBSOCK_PW,
-    // }).catch( err=> {
-    //     console.error(err.message);
-    // });
-    console.log('Websocket connected.');
-    
-    irc.connect();
-    
-    
-    // Event handler registration
-    
-    irc.on('connected', onConnectedHandler);
-    
-    // Connect to ttv
-    
-    
-    irc.on('message', onMessageHandler);
-} catch (err){
-    console.error(err.message);
-}
 
+// try{
+//     // obs.connect({
+//     //     address: "localhost:4444",
+//     //     password: user.WEBSOCK_PW,
+//     // }).catch( err=> {
+//     //     console.error(err.message);
+//     // });
+//     //console.log('Websocket connected.');
+    
+//     //irc.connect();
+    
+    
+//     // Event handler registration
+    
+//     //irc.on('connected', onConnectedHandler);
+    
+//     // Connect to ttv
+    
+    
+//     //irc.on('message', onMessageHandler);
+// } catch (err){
+//     console.error(err.message);
+// }
+// New client
+irc = new tmi.client(opts);
+irc.connect();
+client.on("message", (channel, tags, message) => {
+    commands.forEach((command) => {
+      if (
+        message.startsWith(command.command) &&
+        command.condition(tags, message)
+      ) {
+        command.handler(tags, message);
+      }
+    });
+  });
 
 
 var STFUsound = new Howl({
