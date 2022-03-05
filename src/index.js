@@ -1,6 +1,6 @@
 const tmi = require('tmi.js');
 var irc = require('irc'),
-    user = require("./privateVars.json")
+    user = require("../privateVars.json")
 const {Howl, Howler} = require('howler'); 
 // const OBSWebSocket = require('obs-websocket-js');
 // const obs =  new OBSWebSocket();
