@@ -1,0 +1,4 @@
+@keyframes enter { 100% { transform:rotate(360deg); } }
+@keyframes leave { 100% { transform:rotate(-360deg); } }
+@keyframes idleInFrame { 100% {} }
+@keyframes idleOutFrame { 100% {} }

@@ -39,7 +39,7 @@ function onMessageHandler (channel, tag, msg, self) {
           message.startsWith(command.command) &&
           command.condition(tag, msg)
         ) {
-          command.handler(tag, msg);
+          command.handler(client, tag, msg);
         }
       });
 }  
