@@ -4,14 +4,14 @@ const commands = [
       command: "!help",
       condition: () => true,
       handler: async() => {
-        //return irc.say(target, 'Yeah, me too pal.');
+        client.say(target, 'Yeah, me too pal.');
       },
     },
     {
       command: "!commands",
       condition: () => true,
       handler: async() => {
-        //irc.say(target, '!help, !commands, !ps (playsound)');
+        client.say(target, '!help, !commands, !ps (playsound)');
       },
     },
     {
@@ -19,8 +19,8 @@ const commands = [
       condition: () => true,
       handler: async () => {
         console.log("playsound");
-        ANGERsound.play();
-        gifQueue.add("https://files.catbox.moe/3jvet4.gif");
+        //ANGERsound.play();
+        //gifQueue.add("https://files.catbox.moe/3jvet4.gif");
       },
     },
   ];

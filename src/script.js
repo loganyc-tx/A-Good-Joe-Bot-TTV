@@ -15,11 +15,30 @@ const opts = {
     ]
 };
 
+const client = new tmi.client(opts);
 
-irc = new tmi.client(opts);
-irc.connect();
+client.on('message', onMessageHandler);
+client.on('connected', onConnectedHandler);
 
 
+client.connect();
+
+function onMessageHandler (channel, tag, msg, self) {
+    if (self) { return; } // Ignore messages from the bot
+    commands.forEach((command) => {
+        if (
+          message.startsWith(command.command) &&
+          command.condition(tag, msg)
+        ) {
+          command.handler(tag, msg);
+        }
+      });
+}  
+
+// Called every time the bot connects to Twitch chat
+function onConnectedHandler (addr, port) {
+    console.log(`* Connected to ${addr}:${port}`);
+  }
 
 
 
