@@ -48,6 +48,8 @@ function onMessageHandler (channel, tag, msg, self) {
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler (addr, port) {
     console.log(`* Connected to ${addr}:${port}`);
+    text = document.getElementById("testText");
+    text.innerHTML = "yoshi";
   }
 
 

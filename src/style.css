@@ -2,3 +2,7 @@
 @keyframes leave { 100% { transform:rotate(-360deg); } }
 @keyframes idleInFrame { 100% {} }
 @keyframes idleOutFrame { 100% {} }
+
+#testText {
+    color: aliceblue;
+  }
