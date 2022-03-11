@@ -20,11 +20,5 @@
   "bugs": {
     "url": "https://github.com/loganyc-tx/A-Good-Joe-Bot-TTV/issues"
   },
-  "homepage": "https://github.com/loganyc-tx/A-Good-Joe-Bot-TTV#readme",
-  "dependencies": {
-    "howler": "^2.2.3",
-    "irc": "^0.5.2",
-    "obs-websocket-js": "^4.0.3",
-    "tmi.js": "^1.8.5"
-  }
+  "homepage": "https://github.com/loganyc-tx/A-Good-Joe-Bot-TTV#readme"
 }

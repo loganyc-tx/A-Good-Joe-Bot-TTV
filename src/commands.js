@@ -1,6 +1,3 @@
-var ANGERsound = new Howl({
-    src: ['audio/bladrunnerANGRY.mp3']
-});
 
 const commands = [
     {
