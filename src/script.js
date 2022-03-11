@@ -11,10 +11,19 @@ const opts = {
         //#endregion
     },
     channels: [
-        process.env.CHANNEL_NAME
-    ]
+        //process.env.CHANNEL_NAME
+        getChannel("channel")
+    ],
+    connection: {
+        secure: true,
+    },
 };
 
+
+const getChannel = (param) => {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(param);
+  };
 const client = new tmi.client(opts);
 
 client.on('message', onMessageHandler);
