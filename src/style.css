@@ -7,3 +7,7 @@
     color: aliceblue;
     font-size: larger;
   }
+#errmsg{
+  color: red;
+  font-size: larger;
+}

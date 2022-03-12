@@ -3,6 +3,9 @@ const command = require('./commands.js')
 
 //config options
 const opts = {
+    options: {
+        debug: true
+    },
     identity: {
         username: process.env.BOT_USERNAME,
         //#region
@@ -14,7 +17,7 @@ const opts = {
         getChannel("channel")
     ],
     connection: {
-        secure: true,
+        reconnect: true
     },
 };
 
@@ -26,19 +29,26 @@ const getChannel = (param) => {
   
 const client = new tmi.client(opts);
 
+try{
+    client.connect();
+}catch (err){
+    document.getElementById("errmsg").innerHTML = err;
+}
 
 
 
 
 client.on('message',  (channel, tag, msg, self) => {
-    if (self) { return; } // Ignore messages from the bot
+    if (self || !message.startsWith('!')) { return; } // Ignore messages from the bot
+    const args = message.slice(1).split(' ');
+	const inCom = args.shift().toLowerCase();
     commands.forEach((command) => {
         if (
-            message.startsWith(command.command) &&
-            command.condition(tag, msg)
+            inCom.startsWith(command.command) &&
+            command.condition(tag, args)
         ) {
             client.say("doing command");
-            command.handler(tag, msg);
+            command.handler(tag, args);
         }
       });
 }  );
@@ -50,10 +60,6 @@ client.on('connected', (addr, port) => {
     text.innerHTML = "yoshi";
   });
 
-function func(){
-    client.connect().catch(console.error);
-    
-}
 
 
 
