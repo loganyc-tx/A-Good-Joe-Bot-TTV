@@ -23,6 +23,7 @@ const getChannel = (param) => {
     const url = new URL(window.location.href);
     return url.searchParams.get(param);
   };
+  
 const client = new tmi.client(opts);
 
 client.on('message', onMessageHandler);
@@ -46,14 +47,17 @@ function onMessageHandler (channel, tag, msg, self) {
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler (addr, port) {
-    console.log(`* Connected to ${addr}:${port}`);
+    //console.log(`* Connected to ${addr}:${port}`);
     text = document.getElementById("testText");
     text.innerHTML = "yoshi";
   }
 
 function func(){
     text = document.getElementById("testText");
-    text.innerHTML = `changedviaload`;
+    if(text.innerHTML != "yoshi"){
+        text.innerHTML = `changedviaload`;
+    }
+    
 }
 
 
