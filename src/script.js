@@ -29,11 +29,19 @@ const getChannel = (param) => {
   
 const client = new tmi.client(opts);
 
-try{
-    client.connect();
-}catch (err){
+
+client.connect()
+.then((data) => {
+    // data returns [server, port]
+}).catch((err) => {
     document.getElementById("errmsg").innerHTML = err;
-}
+});
+
+// try{
+//     client.connect();
+// }catch (err){
+    
+// }
 
 
 
