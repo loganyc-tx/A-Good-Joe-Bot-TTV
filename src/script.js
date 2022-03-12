@@ -32,7 +32,9 @@ const client = new tmi.client(opts);
 
 
 try{
+    document.getElementById("errmsg").innerHTML = "attempting connect";
     client.connect();
+    document.getElementById("errmsg").innerHTML = "Connect function ran.";
 }catch (err){
     document.getElementById("errmsg").innerHTML = err;
 }
@@ -44,7 +46,7 @@ client.on('message',  (channel, tag, msg, self) => {
     if (self || !message.startsWith('!')) { return; } // Ignore messages from the bot
     const args = message.slice(1).split(' ');
 	const inCom = args.shift().toLowerCase();
-    commands.forEach((command) => {
+    command.forEach((command) => {
         if (
             inCom.startsWith(command.command) &&
             command.condition(tag, args)
