@@ -28,7 +28,7 @@ const client = new tmi.client(opts);
 
 
 
-client.connect().catch(console.error);
+
 
 client.on('message',  (channel, tag, msg, self) => {
     if (self) { return; } // Ignore messages from the bot
@@ -51,10 +51,7 @@ client.on('connected', (addr, port) => {
   });
 
 function func(){
-    text = document.getElementById("testText");
-    if(text.innerHTML != "yoshi"){
-        text.innerHTML = `changedviaload`;
-    }
+    client.connect().catch(console.error);
     
 }
 
