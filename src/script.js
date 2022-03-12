@@ -51,5 +51,10 @@ function onConnectedHandler (addr, port) {
     text.innerHTML = "yoshi";
   }
 
+function func(){
+    text = document.getElementById("testText");
+    text.innerHTML = `changedviaload`;
+}
+
 
 
