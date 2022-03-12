@@ -30,18 +30,12 @@ const getChannel = (param) => {
 const client = new tmi.client(opts);
 
 
-client.connect()
-.then((data) => {
-    // data returns [server, port]
-}).catch((err) => {
-    document.getElementById("errmsg").innerHTML = err;
-});
 
-// try{
-//     client.connect();
-// }catch (err){
-    
-// }
+try{
+    client.connect();
+}catch (err){
+    document.getElementById("errmsg").innerHTML = err;
+}
 
 
 
@@ -61,11 +55,12 @@ client.on('message',  (channel, tag, msg, self) => {
       });
 }  );
 
+
+
 // Called every time the bot connects to Twitch chat
 client.on('connected', (addr, port) => {
     //console.log(`* Connected to ${addr}:${port}`);
-    text = document.getElementById("testText");
-    text.innerHTML = "yoshi";
+    
   });
 
 
