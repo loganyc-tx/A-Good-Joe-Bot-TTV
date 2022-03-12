@@ -1,7 +1,6 @@
 const tmi = require('tmi.js');
 const command = require('./commands.js')
 
-const d = "popo";
 //config options
 const opts = {
     identity: {
@@ -48,18 +47,9 @@ function onMessageHandler (channel, tag, msg, self) {
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler (addr, port) {
     console.log(`* Connected to ${addr}:${port}`);
-    d = addr + "connectedlol";
     text = document.getElementById("testText");
     text.innerHTML = "yoshi";
   }
-
-function doFunc(){
-    setTimeout(function run() {
-        text = document.getElementById("testText");
-        text.innerHTML = "changedviaload" + d;
-        setTimeout(run, 100);
-      }, 100); 
-}
 
 
 
