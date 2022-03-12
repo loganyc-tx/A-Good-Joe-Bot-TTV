@@ -26,13 +26,11 @@ const getChannel = (param) => {
   
 const client = new tmi.client(opts);
 
-client.on('message', onMessageHandler);
-client.on('connected', onConnectedHandler);
 
 
-client.connect();
+client.connect().catch(console.error);
 
-function onMessageHandler (channel, tag, msg, self) {
+client.on('message',  (channel, tag, msg, self) => {
     if (self) { return; } // Ignore messages from the bot
     commands.forEach((command) => {
         if (
@@ -43,14 +41,14 @@ function onMessageHandler (channel, tag, msg, self) {
             command.handler(tag, msg);
         }
       });
-}  
+}  );
 
 // Called every time the bot connects to Twitch chat
-function onConnectedHandler (addr, port) {
+client.on('connected', (addr, port) => {
     //console.log(`* Connected to ${addr}:${port}`);
     text = document.getElementById("testText");
     text.innerHTML = "yoshi";
-  }
+  });
 
 function func(){
     text = document.getElementById("testText");
