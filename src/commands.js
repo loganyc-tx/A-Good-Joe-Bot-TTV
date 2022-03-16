@@ -2,7 +2,7 @@ var STFUsound = new Howl({
   src: ['audio/STFU.mp3']
 });
 var ANGERsound = new Howl({
-  src: ['audio/bladrunnerANGRY.mp3']
+  src: ['audio/bladerunnerANGRY.mp3']
 });
 
 const commands = [
@@ -26,7 +26,7 @@ const commands = [
       condition: () => true,
       handler: async (client, channel, tag, args) => {
         console.log("playsound");
-        ANGERsound.play();
+        var audio = new Audio(".audio/bladerunnerANGRY.mp3");
         
       },
     },
