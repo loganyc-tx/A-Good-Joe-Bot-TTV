@@ -1,10 +1,3 @@
-var STFUsound = new Howl({
-  src: ['audio/STFU.mp3']
-});
-var ANGERsound = new Howl({
-  src: ['audio/bladerunnerANGRY.mp3']
-});
-
 const commands = [
     {
       command: "help",
