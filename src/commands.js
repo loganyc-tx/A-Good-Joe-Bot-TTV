@@ -20,6 +20,8 @@ const commands = [
       handler: async (client, channel, tag, args) => {
         console.log("playsound");
         var audio = new Audio("audio/bladerunnerANGRY.mp3");
+        audio.loop = false;
+        audio.play(); 
         
       },
     },
