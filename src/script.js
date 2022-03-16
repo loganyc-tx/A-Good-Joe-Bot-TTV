@@ -32,7 +32,6 @@ const opts = {
 };
 
 
-
   
 const client = new tmi.client(opts);
 
@@ -72,10 +71,14 @@ client.on('message',  (channel, tag, msg, self) => {
 client.on('connected', (addr, port) => {
     //console.log(`* Connected to ${addr}:${port}`);
     text = document.getElementById("testText");
-    str = "bbbbbfd";
-    b = text.innerHTML + str;
-    text.innerHTML = b;
-    document.getElementById("img").innerHTML = `<img src="./src/kANGER.gif" />`;
+    
+    text.innerHTML = "Loaded!";
+    
   });
 
-
+document.getElementById("start").addEventListener("click", start);
+function start(){
+    document.getElementById("errmsg").style.display = 'none';
+    document.getElementById("testText").style.display = 'none';
+    document.getElementById("start").style.display = 'none';
+}
