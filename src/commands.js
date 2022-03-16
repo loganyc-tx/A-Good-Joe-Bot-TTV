@@ -1,4 +1,4 @@
-const commands = [
+const command = [
     {
       command: "help",
       condition: () => true,
