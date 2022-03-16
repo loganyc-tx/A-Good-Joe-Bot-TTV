@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <title>Penguin's Low Qual TTV Chatbot</title>
+    <script src="https://github.com/tmijs/tmi.js/releases/download/v1.8.5/tmi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./src/style.css" />
    
-    <script type="text/javascript" src="./src/commands.js"></script>
-    <script type="text/javascript" src="./src/script.js"></script>
+    
     
   </head>
 
-  <body onload="loadCaller()">
+  <body onload>
     <img id="imgDisp" src="./src/kANGER.gif" />
-    <p id="testText">donger</p>
+    <p id="testText">default</p>
     <div id="errmsg">default</div>
     <div id="img"></div>
+    <script type="text/javascript" src="./src/commands.js"></script>
+    <script type="text/javascript" src="./src/script.js"></script>
   </body>
-  
 </html>

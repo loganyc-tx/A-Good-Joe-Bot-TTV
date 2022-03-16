@@ -1,26 +1,5 @@
-const tmi = require('tmi.js');
-const commands = require('./commands')
-
-//config options
-const opts = {
-    options: {
-        debug: true
-    },
-    identity: {
-        username: process.env.BOT_USERNAME,
-        //#region
-        password: process.env.OAUTH_TOKEN,
-        //#endregion
-    },
-    channels: [
-        //process.env.CHANNEL_NAME
-        getChannel("channel")
-    ],
-    connection: {
-        reconnect: true
-    },
-};
-
+// const tmi = require('tmi.js'); doesn't work on client based js
+// const commands = require('./commands')
 
 const getChannel = (param) => {
     const url = new URL(window.location.href);
@@ -28,6 +7,32 @@ const getChannel = (param) => {
     document.getElementById("errmsg").innerHTML = str;
     return url.searchParams.get(param);
   };
+
+//config options
+const opts = {
+    options: {
+        debug: true
+    },
+    identity: {
+        username: process.env.BOT_USERNAME || "AGood_JoeBOT",
+        //#region
+        
+        password: process.env.OAUTH_TOKEN,
+        //#endregion
+        
+    },
+    channels: [
+        //process.env.CHANNEL_NAME
+        getChannel("channel")
+        
+    ],
+    connection: {
+        reconnect: true
+    },
+};
+
+
+
   
 const client = new tmi.client(opts);
 
@@ -43,18 +48,20 @@ try{
 
 
 
-
 client.on('message',  (channel, tag, msg, self) => {
     if (self || !msg.startsWith('!')) { return; } // Ignore messages from the bot
     const args = msg.slice(1).split(' ');
 	const inCom = args.shift().toLowerCase();
-    commands.forEach((command) => {
+    console.log(args);
+    console.log(inCom);
+    commands.forEach((command) => {     
+        console.log(command.command);
         if (
-            inCom.startsWith(command.command) &&
+            (inCom == command.command) &&
             command.condition(tag, args)
         ) {
-            client.say("doing command");
-            command.handler(tag, args);
+            console.log("doing command");
+            command.handler(client, channel, tag, args);
         }
       });
 }  );
@@ -70,11 +77,5 @@ client.on('connected', (addr, port) => {
     text.innerHTML = b;
     document.getElementById("img").innerHTML = `<img src="./src/kANGER.gif" />`;
   });
-
-  function loadCaller(){
-    document.getElementById("testText").innerHTML = "cbt";
-    //document.getElementById("img").innerHTML = `<img src="./src/kANGER.gif" />`;
-  }
-
 
 

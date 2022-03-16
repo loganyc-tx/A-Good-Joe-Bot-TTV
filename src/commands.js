@@ -1,21 +1,22 @@
 
 const commands = [
     {
-      command: "!help",
+      command: "help",
       condition: () => true,
-      handler: async() => {
-        client.say(target, 'Yeah, me too pal.');
+      handler: async(client, channel, tag, args) => {
+        client.say(channel,'Yeah, me too pal.');
+        document.getElementById("testText").innerHTML = "HELP";
       },
     },
     {
-      command: "!commands",
+      command: "commands",
       condition: () => true,
       handler: async() => {
         client.say(target, '!help, !commands, !ps (playsound)');
       },
     },
     {
-      command: "!ps",
+      command: "ps",
       condition: () => true,
       handler: async () => {
         console.log("playsound");
