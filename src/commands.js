@@ -19,7 +19,7 @@ const commands = [
       condition: () => true,
       handler: async (client, channel, tag, args) => {
         console.log("playsound");
-        audio = document.getElementById("audio");
+        audio = document.getElementById("sound");
         audio.setAttribute('src', 'audio/bladerunnerANGRY.mp3');
         audio.setAttribute('muted', 'false');
         audio.oncanplaythrough = function(){this.play();} 
