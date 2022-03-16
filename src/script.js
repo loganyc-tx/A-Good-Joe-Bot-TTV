@@ -14,10 +14,10 @@ const opts = {
         debug: true
     },
     identity: {
-        username: process.env.BOT_USERNAME || "AGood_JoeBOT",
+        username: "AGood_JoeBOT",
         //#region
         
-        password: process.env.OAUTH_TOKEN,
+        password: "oauth:n7e4a05qqtwrvjeqptkqp1davztxqw",
         //#endregion
         
     },

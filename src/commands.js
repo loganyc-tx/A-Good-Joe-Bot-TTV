@@ -1,3 +1,9 @@
+var STFUsound = new Howl({
+  src: ['audio/STFU.mp3']
+});
+var ANGERsound = new Howl({
+  src: ['audio/bladrunnerANGRY.mp3']
+});
 
 const commands = [
     {
@@ -11,17 +17,17 @@ const commands = [
     {
       command: "commands",
       condition: () => true,
-      handler: async() => {
-        client.say(target, '!help, !commands, !ps (playsound)');
+      handler: async(client, channel, tag, args) => {
+        client.say(channel, '!help, !commands, !ps (playsound)');
       },
     },
     {
       command: "ps",
       condition: () => true,
-      handler: async () => {
+      handler: async (client, channel, tag, args) => {
         console.log("playsound");
-        //ANGERsound.play();
-        //gifQueue.add("https://files.catbox.moe/3jvet4.gif");
+        ANGERsound.play();
+        
       },
     },
   ];
