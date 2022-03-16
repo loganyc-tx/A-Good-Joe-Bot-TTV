@@ -1,5 +1,5 @@
 const tmi = require('tmi.js');
-const command = require('./commands.js')
+const commands = require('./commands')
 
 //config options
 const opts = {
@@ -9,7 +9,7 @@ const opts = {
     identity: {
         username: process.env.BOT_USERNAME,
         //#region
-        password: process.env.OAUTH_TOKEN
+        password: process.env.OAUTH_TOKEN,
         //#endregion
     },
     channels: [
@@ -24,6 +24,8 @@ const opts = {
 
 const getChannel = (param) => {
     const url = new URL(window.location.href);
+    let str = url.searchParams.get(param);
+    document.getElementById("errmsg").innerHTML = str;
     return url.searchParams.get(param);
   };
   
@@ -43,10 +45,10 @@ try{
 
 
 client.on('message',  (channel, tag, msg, self) => {
-    if (self || !message.startsWith('!')) { return; } // Ignore messages from the bot
-    const args = message.slice(1).split(' ');
+    if (self || !msg.startsWith('!')) { return; } // Ignore messages from the bot
+    const args = msg.slice(1).split(' ');
 	const inCom = args.shift().toLowerCase();
-    command.forEach((command) => {
+    commands.forEach((command) => {
         if (
             inCom.startsWith(command.command) &&
             command.condition(tag, args)
@@ -62,9 +64,17 @@ client.on('message',  (channel, tag, msg, self) => {
 // Called every time the bot connects to Twitch chat
 client.on('connected', (addr, port) => {
     //console.log(`* Connected to ${addr}:${port}`);
-    
+    text = document.getElementById("testText");
+    str = "bbbbbfd";
+    b = text.innerHTML + str;
+    text.innerHTML = b;
+    document.getElementById("img").innerHTML = `<img src="./src/kANGER.gif" />`;
   });
 
+  function loadCaller(){
+    document.getElementById("testText").innerHTML = "cbt";
+    //document.getElementById("img").innerHTML = `<img src="./src/kANGER.gif" />`;
+  }
 
 
 

@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <title>Penguin's Low Qual TTV Chatbot</title>
     <link rel="stylesheet" href="./src/style.css" />
-    <script src="https://github.com/tmijs/tmi.js/releases/download/v1.8.5/tmi.min.js"></script>
+   
+    <script type="text/javascript" src="./src/commands.js"></script>
+    <script type="text/javascript" src="./src/script.js"></script>
     
   </head>
 
-  <body onload="func()">
+  <body onload="loadCaller()">
     <img id="imgDisp" src="./src/kANGER.gif" />
     <p id="testText">donger</p>
-    <div id="errmsg">no error</div>
+    <div id="errmsg">default</div>
+    <div id="img"></div>
   </body>
-  <script type="text/javascript" src="./src/commands.js"></script>
-  <script type="text/javascript" src="./src/script.js"></script>
+  
 </html>
