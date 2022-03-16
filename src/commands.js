@@ -19,7 +19,7 @@ const commands = [
       condition: () => true,
       handler: async (client, channel, tag, args) => {
         console.log("playsound");
-        var audio = new Audio(".audio/bladerunnerANGRY.mp3");
+        var audio = new Audio("audio/bladerunnerANGRY.mp3");
         
       },
     },
