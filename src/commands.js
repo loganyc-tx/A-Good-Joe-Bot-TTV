@@ -22,7 +22,7 @@ const commands = [
         audio = document.getElementById("sound");
         audio.setAttribute("src", "audio/bladerunnerANGRY.mp3");
         audio.setAttribute("muted", "false");
-        audio.oncanplaythrough = function(){this.play();} 
+        audio.play();
         
       },
     },
