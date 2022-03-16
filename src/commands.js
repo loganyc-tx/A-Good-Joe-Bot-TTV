@@ -11,7 +11,7 @@ const commands = [
       command: "commands",
       condition: () => true,
       handler: async(client, channel, tag, args) => {
-        client.say(channel, '!help, !commands, !ps (playsound)');
+        client.say(channel, '!help, !commands, !ps');
       },
     },
     {
@@ -21,23 +21,18 @@ const commands = [
         console.log("playsound");
         audio = document.getElementById("sound");
         if(args.length == 0){
-          client.say(channel, 'Playsounds are - kanger, stfu, sorry4what');
-        }else if(args[0].toLowerCase() == "kanger"){
-          audio.setAttribute("src", "audio/bladerunnerANGRY.mp3");
-          audio.setAttribute("muted", "false");
-          audio.play();
-        }else if(args[0].toLowerCase() == "stfu"){
-          audio.setAttribute("src", "audio/STFU.mp3");
-          audio.setAttribute("muted", "false");
-          audio.play();
-        }else if(args[0].toLowerCase() == "sorry4what"){
-          audio.setAttribute("src", "audio/Sorry for what.mp3");
-          audio.setAttribute("muted", "false");
-          audio.play();
+          client.say(channel, 'Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss');
         }else{
-          client.say(channel, "I don't know that one. Playsounds are - kanger, stfu, sorry4what");
+          try {
+            const audiosrc = "audio/" + args[0] + ".mp3";
+            audio.setAttribute("src", audiosrc);
+            audio.setAttribute("muted", "false");
+            audio.play();
+          } catch (error) {
+            client.say(channel, "I don't know that one. Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss");
+          }
+          
         }
-        
       },
     },
   ];
