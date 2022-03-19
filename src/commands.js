@@ -21,7 +21,7 @@ const commands = [
         console.log("playsound");
         audio = document.getElementById("sound");
         if(args.length == 0){
-          client.say(channel, 'Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss');
+          client.say(channel, 'Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss, itshouldbeme');
         }else{
           try {
             const audiosrc = "audio/" + args[0] + ".mp3";
@@ -29,7 +29,7 @@ const commands = [
             audio.setAttribute("muted", "false");
             audio.play();
           } catch (error) {
-            client.say(channel, "I don't know that one. Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss");
+            client.say(channel, "I don't know that one. Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss, itshouldbeme");
           }
           
         }
