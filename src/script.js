@@ -7,7 +7,8 @@ const getChannel = (param) => {
     document.getElementById("errmsg").innerHTML = str;
     return url.searchParams.get(param);
   };
-
+const AUTOCMD_INTERVAL = 90000;//15 min interval
+setInterval(commandReminder,AUTOCMD_INTERVAL * 2);
 //config options
 const opts = {
     options: {
@@ -81,4 +82,8 @@ function start(){
     document.getElementById("errmsg").style.display = 'none';
     document.getElementById("testText").style.display = 'none';
     document.getElementById("start").style.display = 'none';
+}
+
+async function commandReminder(channel){
+    client.say(channel, "This is Joe, Penguin's very own bot. Use !commands to check how little programming he can actually do.");
 }
