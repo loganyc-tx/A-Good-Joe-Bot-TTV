@@ -8,7 +8,7 @@ const getChannel = (param) => {
     return url.searchParams.get(param);
   };
 const currChan = getChannel("channel");
-const AUTOCMD_INTERVAL = 90000;//15 min interval
+const AUTOCMD_INTERVAL = 900000;//15 min interval
 setInterval(commandReminder,AUTOCMD_INTERVAL * 2);
 //config options
 const opts = {
