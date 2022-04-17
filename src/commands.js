@@ -1,3 +1,5 @@
+var getImg = document.getElementById("imgDisp");
+
 const commands = [
     {
       command: "help",
@@ -24,10 +26,16 @@ const commands = [
           client.say(channel, 'Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss, itshouldbeme');
         }else{
           try {
+            console.log("playing sound");
             const audiosrc = "audio/" + args[0] + ".mp3";
             audio.setAttribute("src", audiosrc);
             audio.setAttribute("muted", "false");
+            
+            getImg.src = "./src/kANGER.gif";
+            getImg.classList.add('fadeInOut');
+            
             audio.play();
+            fadeInOut(element);            
           } catch (error) {
             client.say(channel, "I don't know that one. Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss, itshouldbeme");
           }
@@ -36,3 +44,8 @@ const commands = [
       },
     },
   ];
+
+
+  getImg.addEventListener("animationend", function(){
+    img.classList.remove('fadeInOut');
+  })

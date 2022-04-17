@@ -9,6 +9,7 @@ const getChannel = (param) => {
   };
 const currChan = getChannel("channel");
 const AUTOCMD_INTERVAL = 900000;//15 min interval
+
 setInterval(commandReminder,AUTOCMD_INTERVAL * 2);
 //config options
 const opts = {
@@ -82,8 +83,17 @@ function start(){
     document.getElementById("errmsg").style.display = 'none';
     document.getElementById("testText").style.display = 'none';
     document.getElementById("start").style.display = 'none';
+    document.getElementById("imgDisp").style.opacity = '0';
+    
+    
+   
 }
 
+
 async function commandReminder(){
-    client.say(currChan, "This is Joe, Penguin's very own bot. Use !commands to check how little programming he can actually do.");
+    client.say(currChan, "This is Joe, Penguin's very own bot. Use !commands to check how little programming he can actually do. Last update - 4/17");
 }
+
+
+
+

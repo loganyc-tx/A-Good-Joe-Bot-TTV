@@ -11,3 +11,22 @@
   color: red;
   font-size: larger;
 }
+
+#imgDisp {
+  opacity: 1;
+}
+.fadeInOut {
+  animation-duration: 3s;
+  animation-name: anim;
+}
+@keyframes anim {
+  0% {
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
