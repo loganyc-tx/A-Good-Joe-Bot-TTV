@@ -34,8 +34,7 @@ const commands = [
             getImg.src = "./src/kANGER.gif";
             getImg.classList.add('fadeInOut');
             
-            audio.play();
-            fadeInOut(element);            
+            audio.play();      
           } catch (error) {
             client.say(channel, "I don't know that one. Playsounds are - kanger, stfu, sorry4what, collegeboy, mmmmh, jabroni, gymboss, itshouldbeme");
           }
