@@ -46,5 +46,5 @@ const commands = [
 
 
   getImg.addEventListener("animationend", function(){
-    img.classList.remove('fadeInOut');
+    getImg.classList.remove('fadeInOut');
   })

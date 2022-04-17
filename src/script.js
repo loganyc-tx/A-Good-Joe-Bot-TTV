@@ -85,8 +85,6 @@ function start(){
     document.getElementById("start").style.display = 'none';
     document.getElementById("imgDisp").style.opacity = '0';
     
-    
-   
 }
 
 
